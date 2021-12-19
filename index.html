@@ -3,22 +3,32 @@
   <head>
     <title>yo</title>
     <meta charset="utf-8"/>
+    <script src="tags.js"></script>
     <script src="script.js"></script>
-
     <!--temporary style-->
   </head>
 
   <body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+
     <h1 id="headline" onclick="t();">Whaddup</h1>
 
-    <input id="searchField" placeholder="Search Album"/> <button id="searchbtn" type="button" onclick="search();">Search</button>
+    <input id="searchField" placeholder="Search Music"/> <button id="searchbtn" type="button" onclick="search();">Search</button>
     <br>
-    <button id="albums_main" type="button" onclick="albumview();">Albums</button>
+    <button id="library_main" type="button" onclick="playaudio();">Library</button>
     <br>
     <br>
-    <button id="albums_all" type=button value="All" style="display: none" onclick="t();">All</button>
-    <button id="albums_playlists" type=button value="Playlists" style="display: none">Playlists</button>
-    <button id="albums_compilations" type=button value="Compilations" style="display: none">Compilations</button>
+    <button id="library_all" type=button value="All" style="display: none" onclick="t();">All</button>
+    <button id="library_playlists" type=button value="Playlists" style="display: none">Playlists</button>
+    <button id="library_albums" type=button value="Albums" style="display: none">Albums</button>
+    <button id="library_compilations" type=button value="Compilations" style="display: none">Compilations</button>
+
+    <div id=resultplane>
+      <button id="playlistExposer" type="button" onclick="exposePlaylist();">Expose Playlist</button>
+    </div>
+
 
   </body>
 </html>
