@@ -1,2 +1,2 @@
-# Youtify
-App for Managing Youtube Music Playlists
+# VGMFetch
+App for Managing my VGM Youtube Music Playlists
