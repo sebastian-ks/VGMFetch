@@ -1,6 +1,6 @@
 # VGMFetch
 App for Managing my VGM Youtube Music Playlists.
-Requires node >= 15
+Requires node >= 15 (403 Error fix >= 20.18.1)
 
 ## Resolve 403 Status Error
 <code>youtube-mp3-downloader</code> is deprecated because it uses a deprecated version of <code>ytdl-core</code> as of time of [this](https://github.com/fent/node-ytdl-core/issues/1295) issue. 
