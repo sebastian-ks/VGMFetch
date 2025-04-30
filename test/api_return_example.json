@@ -1,0 +1,246 @@
+ {
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "zuZEb-l9YljmyvHX1b8SQq3nEnk",
+  "nextPageToken": "EAAaBlBUOkNBVQ",
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "BTgyi32-1k-wmtUamfWZ7wQBU_Q",
+      "id": "UEx2TnAwQm9hczcyM3E3UGJ3NGxhRGtWM1N5eU1iVDk5cS41QTY1Q0UxMTVCODczNThE",
+      "snippet": {
+        "publishedAt": "2013-01-13T06:46:09Z",
+        "channelId": "UCubokaJqWnfPdVpFw_G_Q2w",
+        "title": "Mute City - F-Zero GP Legend [OST]",
+        "description": "Game: F-Zero GP Legend\nMusic: Mute City",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/g_WINpozjLk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/g_WINpozjLk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/g_WINpozjLk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/g_WINpozjLk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/g_WINpozjLk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "DeoxysPrime",
+        "playlistId": "PLvNp0Boas723q7Pbw4laDkV3SyyMbT99q",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "g_WINpozjLk"
+        },
+        "videoOwnerChannelTitle": "DeoxysPrime",
+        "videoOwnerChannelId": "UCubokaJqWnfPdVpFw_G_Q2w"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "kkvEUU422VyrcJSOsZjSLBe_CZI",
+      "id": "UEx2TnAwQm9hczcyM3E3UGJ3NGxhRGtWM1N5eU1iVDk5cS5EQUE1NTFDRjcwMDg0NEMz",
+      "snippet": {
+        "publishedAt": "2013-01-13T06:46:09Z",
+        "channelId": "UCubokaJqWnfPdVpFw_G_Q2w",
+        "title": "Fire Field - F-Zero GP Legend [OST]",
+        "description": "Game: F-Zero GP Legend\nMusic: Fire Field",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kBfvPyRYsYI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kBfvPyRYsYI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kBfvPyRYsYI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kBfvPyRYsYI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/kBfvPyRYsYI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "DeoxysPrime",
+        "playlistId": "PLvNp0Boas723q7Pbw4laDkV3SyyMbT99q",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "kBfvPyRYsYI"
+        },
+        "videoOwnerChannelTitle": "DeoxysPrime",
+        "videoOwnerChannelId": "UCubokaJqWnfPdVpFw_G_Q2w"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "7NmLsSefb1MfwxvXkXB7Z_lmLtA",
+      "id": "UEx2TnAwQm9hczcyM3E3UGJ3NGxhRGtWM1N5eU1iVDk5cS41Mzk2QTAxMTkzNDk4MDhF",
+      "snippet": {
+        "publishedAt": "2013-01-13T06:46:09Z",
+        "channelId": "UCubokaJqWnfPdVpFw_G_Q2w",
+        "title": "Port Town - F-Zero GP Legend [OST]",
+        "description": "Game: F-Zero GP Legend\nMusic: Port Town",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XQVngLPvbFk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XQVngLPvbFk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XQVngLPvbFk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XQVngLPvbFk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/XQVngLPvbFk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "DeoxysPrime",
+        "playlistId": "PLvNp0Boas723q7Pbw4laDkV3SyyMbT99q",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "XQVngLPvbFk"
+        },
+        "videoOwnerChannelTitle": "DeoxysPrime",
+        "videoOwnerChannelId": "UCubokaJqWnfPdVpFw_G_Q2w"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "n1eGwolnctQe7MMW4D_8VLzZUo8",
+      "id": "UEx2TnAwQm9hczcyM3E3UGJ3NGxhRGtWM1N5eU1iVDk5cS4zMDg5MkQ5MEVDMEM1NTg2",
+      "snippet": {
+        "publishedAt": "2013-01-13T06:46:09Z",
+        "channelId": "UCubokaJqWnfPdVpFw_G_Q2w",
+        "title": "Red Canyon - F-Zero GP Legend [OST]",
+        "description": "Game: F-Zero GP Legend\nMusic: Red Canyon",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/uZ1yRfKrrjg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/uZ1yRfKrrjg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/uZ1yRfKrrjg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/uZ1yRfKrrjg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/uZ1yRfKrrjg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "DeoxysPrime",
+        "playlistId": "PLvNp0Boas723q7Pbw4laDkV3SyyMbT99q",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "uZ1yRfKrrjg"
+        },
+        "videoOwnerChannelTitle": "DeoxysPrime",
+        "videoOwnerChannelId": "UCubokaJqWnfPdVpFw_G_Q2w"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "_qeSj-QfeX2tPNKhmnc0XVH2hG4",
+      "id": "UEx2TnAwQm9hczcyM3E3UGJ3NGxhRGtWM1N5eU1iVDk5cS45ODRDNTg0QjA4NkFBNkQy",
+      "snippet": {
+        "publishedAt": "2013-01-13T06:46:09Z",
+        "channelId": "UCubokaJqWnfPdVpFw_G_Q2w",
+        "title": "Sand Ocean - F-Zero GP Legend [OST]",
+        "description": "Game: F-Zero GP Legend\nMusic: Sand Ocean",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ztr1IJYREAk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ztr1IJYREAk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ztr1IJYREAk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ztr1IJYREAk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ztr1IJYREAk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "DeoxysPrime",
+        "playlistId": "PLvNp0Boas723q7Pbw4laDkV3SyyMbT99q",
+        "position": 4,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ztr1IJYREAk"
+        },
+        "videoOwnerChannelTitle": "DeoxysPrime",
+        "videoOwnerChannelId": "UCubokaJqWnfPdVpFw_G_Q2w"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 17,
+    "resultsPerPage": 5
+  }
+}

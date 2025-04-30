@@ -1,23 +1,15 @@
 const { default: axios } = require("axios");
 const fs = require("fs");
-const YoutubeMp3Downloader = require("youtube-mp3-downloader");
+const { parse } = require("path");
+const exec = require("child_process").exec;
 
-var error_prompt = "Usage: \n\t node vgmfetch.js [-d <download-path>] [--get-unav] <full-playlist-url> <path-to-cred.json>";
+var error_prompt = "Usage: \n\t node vgmfetch.js [-d <download-path> <metadata-path>] [--get-unav] <full-playlist-url> <path-to-cred.json>";
 //yt = global credentials Object for authorization when using Youtube API
 var yt;
-//yd = global downloader Object which can be called
-var yd;
-var yd_config = {
-  "ffmpegPath": "/usr/bin/ffmpeg",        // FFmpeg binary location
-                                          // Output file location (default: the home directory)
-  "youtubeVideoQuality": "highestaudio",  // Desired video quality (default: highestaudio)
-  "queueParallelism": 2,                  // Download parallelism (default: 1)
-  "progressTimeout": 2000,                // Interval in ms for the progress reports (default: 1000)
-  "allowWebm": false                      // Enable download from WebM sources (default: false)
-}
 
 var should_download;
 var download_dir;
+var meta_dir;
 var url;
 var dir;
 var videos = {};
@@ -38,14 +30,15 @@ if(process.argv.length < 4){
 }
 
 if(process.argv[2] == "-d"){
-  if(process.argv.length < 6){
+  if(process.argv.length < 7){
     console.log(error_prompt);
     process.exit(1)
   }
   should_download = true;
   download_dir = process.argv[3];
-  url = process.argv[4];
-  yt = require(process.argv[5]);
+  meta_dir = process.argv[4];
+  url = process.argv[5];
+  yt = require(process.argv[6]);
   
 }
 else if(process.argv[2] == "--get-unav"){
@@ -255,32 +248,19 @@ function check_state(){
 }
 
 function download(max=null){
-  //Downloader config
-  yd_config["outputPath"] = download_dir;
-  yd = new YoutubeMp3Downloader(yd_config);
-
   let list = require("./"+dir+"/added.json");
-  var last_id = list.slice(-1);
-
-  yd.on("error", function(error){console.log(error)});
-  /*yd.on("progress", function(progress){
-    process.stdout.write("Progress: " + Math.round(progress["progress"]["percentage"])+"%\r");
-  })*/
-  yd.on("finished", function(err,data){
-    console.log(data["title"]+ " ...finished\n");
-    if(data["videoId"] == last_id){
-      post_dl_checkup();
-    }
-  }) 
-  //-----
-
-  
+  var done = 0;
+  var metadata = parse_metadata();
 
   if(!max){
     console.log(list.length+" track(s) will be downloaded...\n");
     list.forEach((video) =>{
       //console.log("Downloading "+video);
-      yd.download(video);
+      var dl = yt_dlp(video, metadata);
+      done++;
+      if(done == list.length){
+        post_dl_checkup();
+      }
     })
   }
   else{
@@ -288,7 +268,11 @@ function download(max=null){
     for(let i=0;i<list.length;i=i+1){
       if(i < max){
         console.log("Downloading "+list[i]);
-        yd.download(list[i]);
+        var dl = yt_dlp(list[i], metadata);
+        done++;
+        if(done == list.length){
+          post_dl_checkup();
+        } 
       }
       else{
         break;
@@ -296,6 +280,39 @@ function download(max=null){
     }
   }
 }
+
+function yt_dlp(video, metadata){
+  //TODO: you could just pass flags from this apps cli to yt-dlp, but prob will not change these
+  var run = `yt-dlp -P ${download_dir} ${metadata} -x --audio-format flac --audio-quality 0 --embed-thumbnail https://www.youtube.com/watch?v=${video}`;
+  console.log(`[EXEC] ${run}`);
+
+  return exec(run, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`${stdout}`);
+    console.error(`${stderr}`);
+  });
+}
+
+function parse_metadata(){
+  tags = require(meta_dir);
+  yt_dlp_string = "--postprocessor-args \"ffmpeg:";
+  Object.keys(tags).forEach((key) =>{
+    tag = tags[key];
+    if(!(typeof tag === 'string' || tag instanceof String)){
+      /*Disclaimer: While this will technically work
+       *ffmpeg will not set stringified json objects as metadata
+       *probably because '{' '}' or ':' are illegal characters*/
+      tag = json_sanitized(JSON.stringify(tag));
+    }
+    yt_dlp_string = yt_dlp_string + " -metadata "+key+"="+"'"+tag+"'";
+  })
+
+  return yt_dlp_string+"\"";
+}
+
 
 function post_dl_checkup(){
   console.log("Running post-download checkup...\n");
@@ -331,4 +348,8 @@ function post_dl_checkup(){
 
 function sanitized(title){
   return title.replace(/[/\\?%*:|"<>]/g, '');
+}
+
+function json_sanitized(title){
+  return title.replace(/["]/g, '');
 }
