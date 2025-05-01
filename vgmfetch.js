@@ -257,10 +257,12 @@ function download(max=null){
     list.forEach((video) =>{
       //console.log("Downloading "+video);
       var dl = yt_dlp(video, metadata);
-      done++;
-      if(done == list.length){
-        post_dl_checkup();
-      }
+      dl.on('exit', () => {
+        done++;
+        if(done == list.length){
+          post_dl_checkup();
+        }
+      });
     })
   }
   else{
@@ -269,10 +271,12 @@ function download(max=null){
       if(i < max){
         console.log("Downloading "+list[i]);
         var dl = yt_dlp(list[i], metadata);
-        done++;
-        if(done == list.length){
-          post_dl_checkup();
-        } 
+        dl.on('exit', () => {
+          done++;
+          if(done == list.length){
+            post_dl_checkup();
+          }
+        });
       }
       else{
         break;
@@ -284,15 +288,17 @@ function download(max=null){
 function yt_dlp(video, metadata){
   //TODO: you could just pass flags from this apps cli to yt-dlp, but prob will not change these
   var run = `yt-dlp -P ${download_dir} ${metadata} -x --audio-format flac --audio-quality 0 --embed-thumbnail https://www.youtube.com/watch?v=${video}`;
-  console.log(`[EXEC] ${run}`);
+  //console.log(`[EXEC] ${run}`);
+  console.log("Downloading "+video+" ...");
 
   return exec(run, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
     }
-    console.log(`${stdout}`);
-    console.error(`${stderr}`);
+    //console.log(`${stdout}`);
+    //console.error(`${stderr}`);
+    console.log(video+" ...finished");
   });
 }
 
@@ -329,8 +335,8 @@ function post_dl_checkup(){
   error_ids.write("[\n");
 
   added.forEach((video_id) =>{
-    title = pl_content[video_id]+".mp3";
-    if(!mp3s.includes(title)){
+    title = pl_content[video_id]+" ["+video_id+"]"; //This is the filename format used by yt-dlp
+    if(!mp3s.includes(title+".mp3") && !mp3s.includes(title+".flac")){
       cnt = cnt +1;
       console.log("- "+title+ " ...missing (videoID: "+video_id+")\n");
       error_ids.write(sep + "\""+video_id+"\"");
