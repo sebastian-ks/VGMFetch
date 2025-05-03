@@ -3,6 +3,10 @@ const fs = require("fs");
 const { parse } = require("path");
 const exec = require("child_process").exec;
 
+/*TODO
+ - post dl checkup registers files with special characters covered in sanitized as missing (prob should not look for sanitized name)
+*/
+
 var error_prompt = "Usage: \n\t node vgmfetch.js [-d <download-path> <metadata-path>] [--get-unav] <full-playlist-url> <path-to-cred.json>";
 //yt = global credentials Object for authorization when using Youtube API
 var yt;
@@ -287,7 +291,7 @@ function download(max=null){
 
 function yt_dlp(video, metadata){
   //TODO: you could just pass flags from this apps cli to yt-dlp, but prob will not change these
-  var run = `yt-dlp -P ${download_dir} ${metadata} -x --audio-format flac --audio-quality 0 --embed-thumbnail https://www.youtube.com/watch?v=${video}`;
+  var run = `yt-dlp -P "${download_dir}" ${metadata} -x --audio-format flac --audio-quality 0 --embed-thumbnail https://www.youtube.com/watch?v=${video}`;
   //console.log(`[EXEC] ${run}`);
   console.log("Downloading "+video+" ...");
 
@@ -306,7 +310,7 @@ function parse_metadata(){
   tags = require(meta_dir);
   yt_dlp_string = "--postprocessor-args \"ffmpeg:";
   Object.keys(tags).forEach((key) =>{
-    tag = tags[key];
+    tag = tags[key]; //This could cause problem if string JSON value contains single quotes ''?
     if(!(typeof tag === 'string' || tag instanceof String)){
       /*Disclaimer: While this will technically work
        *ffmpeg will not set stringified json objects as metadata
@@ -336,9 +340,11 @@ function post_dl_checkup(){
 
   added.forEach((video_id) =>{
     title = pl_content[video_id]+" ["+video_id+"]"; //This is the filename format used by yt-dlp
+    //This will miss videos with sanitzed characters in title, because title is sanitized and filename in dir is not!
+    //Solution would probably be to control file with yt-dlp
     if(!mp3s.includes(title+".mp3") && !mp3s.includes(title+".flac")){
       cnt = cnt +1;
-      console.log("- "+title+ " ...missing (videoID: "+video_id+")\n");
+      console.log("- "+title+ " ...missing\n");
       error_ids.write(sep + "\""+video_id+"\"");
       if(!sep){
         sep = ",\n";
@@ -357,5 +363,5 @@ function sanitized(title){
 }
 
 function json_sanitized(title){
-  return title.replace(/["]/g, '');
+  return title.replace(/["']/g, '');
 }
