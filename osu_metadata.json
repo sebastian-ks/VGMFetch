@@ -1,0 +1,20 @@
+{
+    "comment": {
+        "Song Info":{
+            "Title": "",
+            "Composer": ""
+        },
+        "Game Info":{
+            "Title": "",
+            "Platform": "",
+            "Developer": "",
+            "Publisher": ""
+        },
+        "Remix Info":{
+            "Artist": "",
+            "Album": "",
+            "Publisher": ""
+        }
+    }
+}
+
